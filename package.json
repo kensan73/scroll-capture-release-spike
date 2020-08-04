@@ -1,0 +1,34 @@
+{
+  "name": "parcel-emotion-typescript",
+  "version": "0.1.0",
+  "description": "How to use Emotion.js css prop with Parcel &amp; TypeScript",
+  "main": "index.js",
+  "scripts": {
+    "start": "parcel index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/krzysztofzuraw/parcel-emotion-typescript.git"
+  },
+  "keywords": [],
+  "author": "Krzysztof Żuraw <info@kzuraw.com> (https://krzysztofzuraw.com/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/krzysztofzuraw/parcel-emotion-typescript/issues"
+  },
+  "homepage": "https://github.com/krzysztofzuraw/parcel-emotion-typescript#readme",
+  "devDependencies": {
+    "@types/react": "16.9.44",
+    "@types/react-dom": "16.9.8",
+    "@babel/core": "7.10.5",
+    "babel-plugin-jsx-pragmatic": "1.0.2",
+    "babel-plugin-transform-inline-environment-variables": "0.4.3",
+    "parcel-bundler": "1.12.4",
+    "typescript": "3.9.7"
+  },
+  "dependencies": {
+    "@emotion/core": "10.0.28",
+    "react": "16.13.1",
+    "react-dom": "16.13.1"
+  }
+}
