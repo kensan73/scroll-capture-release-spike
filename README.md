@@ -17,7 +17,9 @@ If you scroll to the yellow section that is surrounded by grey sections,
     - y scrollbar is hidden
     - after 5 seconds,
         - scrollbar is re-enabled
-        - yellow section will be pushed away from top
+        - yellow section will either scroll down or up,
+        depending on previous scrolling direction
+        (if you were scrolling down when captured, you will be scrolled down, same if you were scrolling upward.)
         
 # How to run
 > npm install
