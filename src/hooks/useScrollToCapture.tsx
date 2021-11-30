@@ -5,7 +5,7 @@ const useScrollToCapture = (
   sectionReference: any,
   percent: string,
   threshold: number = 82
-): [boolean, () => void] => {
+): [boolean, (pushAwayDirection?: "up" | "down") => void] => {
   const [isTop, setIsTop] = useState(false);
   const [sectionTopBottom, setSectionTopBottom] = useState({ top: 0, bottom: 0});
 
