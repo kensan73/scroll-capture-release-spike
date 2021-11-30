@@ -29,3 +29,6 @@ If you scroll to the yellow section that is surrounded by grey sections,
 Within the yellow section you will see
 - "up" | "down" scroll direction
 - _&lt;number&gt;_ 0-100 which is % visible of the yellow section in client area
+
+# Tested
+Tested in Chrome and IE11 to be working.
