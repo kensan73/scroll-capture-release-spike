@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { useWheelHookContentColor } from "../hooks/useWheelHookContentColor";
 import { useWheelCalcSectionPercentage } from "../hooks/useWheelCalcSectionPercentage";
 import { useScrollToCapture } from "../hooks/useScrollToCapture";
+import useRestoreScrollToUncapture from "../hooks/useRestoreScrollToUncapture";
 
 const colors = ["red", "green", "blue", "orange", "grey"];
 
@@ -15,15 +16,7 @@ const Animation: React.FC = () => {
     sectionReference,
     percent
   );
-
-  useEffect(() => {
-    if (!isCaptured) return;
-
-    let handle = setTimeout(() => {
-      clearTimeout(handle);
-      restoreScrollTo();
-    }, 5000);
-  }, [isCaptured]);
+  useRestoreScrollToUncapture(isCaptured, restoreScrollTo);
 
   return (
     <section ref={sectionReference} css={sectionStyle}>
