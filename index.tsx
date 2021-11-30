@@ -1,18 +1,27 @@
-import * as React from "react"
-import * as ReactDOM from "react-dom"
-import Animation from "./src/Animation"
-import Quote from "./src/Quote"
+import * as React from "react";
+import * as ReactDOM from "react-dom";
+import Animation from "./src/Animation";
+import Quote from "./src/Quote";
 
-const quote = "All good things come to those who wait."
+const quote = "All good things come to those who wait.";
 
 const quoteProperties = {
   quote,
-}
+};
 
 const Root = () => (
   <>
     <Quote {...quoteProperties} />
+    <Quote {...quoteProperties} />
+    <Quote {...quoteProperties} />
+    <Quote {...quoteProperties} />
+    <Quote {...quoteProperties} />
+    <Quote {...quoteProperties} />
     <Animation />
+    <Quote {...quoteProperties} />
+    <Quote {...quoteProperties} />
+    <Quote {...quoteProperties} />
+    <Quote {...quoteProperties} />
     <Quote {...quoteProperties} />
   </>
   // <div
@@ -26,6 +35,6 @@ const Root = () => (
   // >
   //   Parcel + Emotion + TypeScript example
   // </div>
-)
+);
 
-ReactDOM.render(<Root />, document.getElementById("root"))
+ReactDOM.render(<Root />, document.getElementById("root"));
