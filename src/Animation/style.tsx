@@ -1,4 +1,4 @@
-import { css } from "@emotion/core"
+import { css, SerializedStyles } from "@emotion/core"
 
 const sectionStyle = css`
   background-color: yellow;
@@ -12,4 +12,8 @@ const sectionStyle = css`
   }
 `
 
-export { sectionStyle }
+const percentStyle = (color: string): SerializedStyles => css`
+  color: ${color};
+`
+
+export { sectionStyle, percentStyle }

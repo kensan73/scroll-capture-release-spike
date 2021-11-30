@@ -1,5 +1,5 @@
 import * as React from "react"
-import { sectionStyle } from "./style"
+import { sectionStyle, percentStyle } from "./style"
 import { useEffect, useRef, useState } from "react"
 
 const calcPercentage = (
@@ -37,7 +37,6 @@ const calcPercentage = (
   } else {
     adjustedRect.top = clientRect.top
   }
-  console.log(sectionRect, clientRect)
 
   let percent
   percent =
@@ -45,12 +44,15 @@ const calcPercentage = (
       (sectionRect.bottom - sectionRect.top)) *
     100
 
-  return (percent > 100 ? 100 : percent).toPrecision(2) + ""
+  return (percent > 98 ? 100 : percent.toPrecision(2)) + ""
 }
+
+const colors = ["red", "green", "blue"]
 
 const Animation: React.FC = () => {
   const [content, setContent] = useState("")
   const [percent, setPercent] = useState("")
+  const [colorsIndex, setColorsIndex] = useState(0)
   const sectionReference = useRef<HTMLElement>(null)
 
   useEffect(() => {
@@ -60,12 +62,16 @@ const Animation: React.FC = () => {
         content = "up"
       }
       setContent(content)
+      setColorsIndex((prev) => {
+        if (prev === colors.length - 1) return 0
+        return prev + 1
+      })
     }
 
     window.addEventListener("wheel", onwheel)
 
     return () => window.removeEventListener("wheel", onwheel)
-  }, [])
+  }, [setColorsIndex])
   useEffect(() => {
     const onwheel = (event: WheelEvent) => {
       if (sectionReference.current == null) return
@@ -84,47 +90,6 @@ const Animation: React.FC = () => {
         bottom: window.pageYOffset + document.documentElement.clientHeight,
       }
       const percent = calcPercentage(sectionRect, clientRect)
-      // const adjustedRect = {
-      //   top: sectionRect.top,
-      //   bottom: sectionRect.bottom,
-      // }
-      // if (
-      //   sectionRect.top >= clientRect.top &&
-      //   sectionRect.top <= clientRect.bottom
-      // ) {
-      //   adjustedRect.bottom = clientRect.bottom
-      // } else {
-      //   adjustedRect.top = clientRect.top
-      // }
-      // console.log(sectionRect)
-      // console.log(clientRect)
-      // console.log("-----------")
-      //
-      // let percent: string
-      // if (
-      //   adjustedRect.top < clientRect.top &&
-      //   adjustedRect.bottom < clientRect.top
-      // ) {
-      //   percent = "0"
-      // } else if (
-      //   adjustedRect.top > clientRect.bottom &&
-      //   adjustedRect.bottom > clientRect.bottom
-      // ) {
-      //   percent = "0"
-      // } else if (
-      //   adjustedRect.top >= clientRect.top &&
-      //   adjustedRect.bottom <= clientRect.bottom
-      // ) {
-      //   percent = "100"
-      // } else {
-      //   percent =
-      //     (
-      //       ((adjustedRect.bottom - adjustedRect.top) /
-      //         (sectionRect.bottom - sectionRect.top)) *
-      //       100
-      //     ).toPrecision(2) + ""
-      // }
-
       setPercent(percent)
     }
 
@@ -135,7 +100,7 @@ const Animation: React.FC = () => {
   return (
     <section ref={sectionReference} css={sectionStyle}>
       <h2>{content}</h2>
-      <h2>{percent}</h2>
+      <h2 css={percentStyle(colors[colorsIndex])}>{percent}</h2>
     </section>
   )
 }
