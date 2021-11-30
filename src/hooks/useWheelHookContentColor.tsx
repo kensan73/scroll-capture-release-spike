@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 
-const useWheelHook = (maxColors: number): [string, number] => {
+const useWheelHookContentColor = (maxColors: number): [string, number] => {
   const [content, setContent] = useState("")
   const [colorsIndex, setColorsIndex] = useState(0)
   useEffect(() => {
@@ -24,5 +24,5 @@ const useWheelHook = (maxColors: number): [string, number] => {
   return [content, colorsIndex]
 }
 
-export { useWheelHook }
-export default useWheelHook
+export { useWheelHookContentColor }
+export default useWheelHookContentColor

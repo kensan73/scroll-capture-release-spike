@@ -1,8 +1,8 @@
 import * as React from "react"
 import { sectionStyle, percentStyle } from "./style"
 import { useEffect, useRef, useState } from "react"
-import useWheelHookContentColor from "../hooks/useWheelHook"
-import useWheelCalcSectionPercentage from "../hooks/useWheelCalcSectionPercentage"
+import { useWheelHookContentColor } from "../hooks/useWheelHookContentColor"
+import { useWheelCalcSectionPercentage } from "../hooks/useWheelCalcSectionPercentage"
 
 const colors = ["red", "green", "blue", "orange", "grey"]
 
